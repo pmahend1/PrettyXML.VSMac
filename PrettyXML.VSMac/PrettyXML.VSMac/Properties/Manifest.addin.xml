@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ExtensionModel>
-    <Runtime>
-    </Runtime>
+  <Runtime>
+    <Import assembly="XMLFormatter.dll" />
+  </Runtime>
+  <Extension path="/MonoDevelop/Ide/CodeFormatters">
+    <Command _label="Prettify XML"
+             _description="XML Formatter for VS Mac"
+             defaultHandler="PrettyXML.VSMac.PrettyXMLCommands.FormatXML" />
+  </Extension>
+  <Extension path="/MonoDevelop/Ide/Commands/Edit">
+    <Command id="PrettyXML.VSMac.PrettyXMLCommands.FormatXML"
+             _label="Prettify XML command edit"
+             defaultHandler="PrettyXML.VSMac.XMLFormatter" />
+  </Extension>
+  <Extension path="/MonoDevelop/Ide/MainMenu/Edit">
+    <CommandItem id="PrettyXML.VSMac.PrettyXMLCommands.FormatXML" />
+  </Extension>
 </ExtensionModel>

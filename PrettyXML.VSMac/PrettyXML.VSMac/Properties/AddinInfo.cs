@@ -23,7 +23,6 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using System;
 using Mono.Addins;
 using Mono.Addins.Description;
 
@@ -36,4 +35,4 @@ using Mono.Addins.Description;
 [assembly: AddinName("PrettyXML.VSMac")]
 [assembly: AddinCategory("IDE extensions")]
 [assembly: AddinDescription("PrettyXML.VSMac")]
-[assembly: AddinAuthor("Mikayla Hutchinson")]
+[assembly: AddinAuthor("Prateek Mahendrakar")]
