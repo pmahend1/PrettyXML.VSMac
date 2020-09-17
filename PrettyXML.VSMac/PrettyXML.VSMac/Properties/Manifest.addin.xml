@@ -1,19 +1,38 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ExtensionModel>
-  <Runtime>
-    <Import assembly="XMLFormatter.dll" />
-  </Runtime>
-  <Extension path="/MonoDevelop/Ide/CodeFormatters">
-    <Command _label="Prettify XML"
-             _description="XML Formatter for VS Mac"
-             defaultHandler="PrettyXML.VSMac.PrettyXMLCommands.FormatXML" />
-  </Extension>
-  <Extension path="/MonoDevelop/Ide/Commands/Edit">
-    <Command id="PrettyXML.VSMac.PrettyXMLCommands.FormatXML"
-             _label="Prettify XML command edit"
-             defaultHandler="PrettyXML.VSMac.XMLFormatter" />
-  </Extension>
-  <Extension path="/MonoDevelop/Ide/MainMenu/Edit">
-    <CommandItem id="PrettyXML.VSMac.PrettyXMLCommands.FormatXML" />
-  </Extension>
-</ExtensionModel>
+<Addin author="Prateek Mahendrakar"
+       id="PrettyXML.VSMac"
+       name="PrettyXML"
+       namespace="PrettyXML.VSMac"
+       description="Formats XML just like Visual Studio Windows"
+       version="0.0.7"
+       url="https://github.com/pmahend1/PrettyXML.VSMac">
+  <Header>
+    <Icon32>logo.png</Icon32>
+    <UpdateRank>MySpecialTag:Important Minor</UpdateRank>
+    <ReleaseNotes>
+    {{0.0.7, 2020-09-16}}
+    First version
+    </ReleaseNotes>
+  </Header>
+  <ExtensionModel>
+    <Runtime>
+      <Import assembly="XMLFormatter.dll" />
+    </Runtime>
+    <!-- region works -->
+    <Extension path="/MonoDevelop/Ide/Commands/Edit">
+      <Command id="PrettyXML.VSMac.PrettyXMLCommands.FormatXML"
+               _label="PrettyXML - Format"
+               defaultHandler="PrettyXML.VSMac.XMLFormatter"
+               macShortcut="Meta+K|J Meta+K|Meta+J"
+               shortcut="Control+K|J Control+K|Control+J"
+               description="Formats XML just like Visual Studio" />
+    </Extension>
+    <Extension path="/MonoDevelop/Ide/MainMenu/Edit">
+      <CommandItem id="PrettyXML.VSMac.PrettyXMLCommands.FormatXML" />
+    </Extension>
+    <!-- region works -->
+    <Extension path="/MonoDevelop/Ide/UpdateTags">
+      <Tag id="MySpecialTag" />
+    </Extension>
+  </ExtensionModel>
+</Addin>

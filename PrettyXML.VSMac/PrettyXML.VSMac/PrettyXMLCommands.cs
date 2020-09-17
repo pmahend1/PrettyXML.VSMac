@@ -1,5 +1,4 @@
-﻿using System;
-namespace PrettyXML.VSMac
+﻿namespace PrettyXML.VSMac
 {
     public enum PrettyXMLCommands
     {

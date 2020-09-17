@@ -29,7 +29,11 @@ using Mono.Addins.Description;
 [assembly: Addin(
     "PrettyXML VS Mac",
     Namespace = "PrettyXML.VSMac",
-    Version = "1.0"
+    Version = "1.0",
+    Category = "Language Bindings",
+    Flags = AddinFlags.None,
+    EnabledByDefault = true,
+    Url = "https://github.com/pmahend1/PrettyXML.VSMac"
 )]
 
 [assembly: AddinName("PrettyXML.VSMac")]
