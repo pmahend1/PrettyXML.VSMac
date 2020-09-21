@@ -11,3 +11,4 @@ Formats XML just like Windows counterpart.
 - CMD+K CMD+J : Prettify XML
 
 
+![Example](./example.gif)
