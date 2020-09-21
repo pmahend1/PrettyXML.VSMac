@@ -23,17 +23,20 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using System;
 using Mono.Addins;
 using Mono.Addins.Description;
 
 [assembly: Addin(
     "PrettyXML VS Mac",
     Namespace = "PrettyXML.VSMac",
-    Version = "1.0"
+    Version = "1.0.0-beta",
+    Category = "Code formatters",
+    Flags = AddinFlags.None,
+    EnabledByDefault = true,
+    Url = "https://github.com/pmahend1/PrettyXML.VSMac"
 )]
 
-[assembly: AddinName("PrettyXML.VSMac")]
-[assembly: AddinCategory("IDE extensions")]
+[assembly: AddinName("PrettyXML VS Mac")]
+[assembly: AddinCategory("Code formatters")]
 [assembly: AddinDescription("PrettyXML.VSMac")]
-[assembly: AddinAuthor("Mikayla Hutchinson")]
+[assembly: AddinAuthor("Prateek Mahendrakar")]
