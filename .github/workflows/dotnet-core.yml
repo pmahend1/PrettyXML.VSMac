@@ -19,6 +19,10 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    defaults:
+      run:
+        shell: pwsh
+        
     steps:
     - name: Checkout
       uses: actions/checkout@v2.3.3
@@ -29,8 +33,7 @@ jobs:
         dotnet-version: 3.1.402  
     
     - name: Set directory
-    - run: |
-        pwsh sl ./PrettyXML.VSMac/PrettyXML.VSMac
+    - run: Set-Location ./PrettyXML.VSMac/PrettyXML.VSMac
         
     - name: Install dependencies
       run: dotnet restore
