@@ -34,7 +34,7 @@ jobs:
         dotnet-version: 3.1.402  
     
     - name: Set directory
-      run: Set-Location ./PrettyXML.VSMac/PrettyXML.VSMac
+      run: sl .\PrettyXML.VSMac\PrettyXML.VSMac\
         
     - name: Install dependencies
       run: dotnet restore
