@@ -19,10 +19,12 @@ on:
 
 jobs:
   build:
-
     runs-on: macos-latest
-
     steps:
+    - name: Set directory
+    - run: |
+        cd PrettyXML.VSMac/PrettyXML.VSMac
+        
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
