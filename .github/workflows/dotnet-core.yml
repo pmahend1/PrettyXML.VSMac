@@ -2,7 +2,10 @@ name: .NET Core
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+      - Dev
+      - 'gh-actions'
   pull_request:
     branches:
       - master
@@ -12,6 +15,7 @@ on:
       - master
       - Dev
       - gh-actions
+      - 'gh-actions'
 
 jobs:
   build:
