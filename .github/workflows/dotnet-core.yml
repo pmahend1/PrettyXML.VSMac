@@ -14,22 +14,22 @@ on:
     branches:
       - master
       - Dev
-      - gh-actions
       - 'gh-actions'
 
 jobs:
   build:
     runs-on: macos-latest
-    steps:
-    - name: Set directory
-    - run: |
-        cd PrettyXML.VSMac/PrettyXML.VSMac
-        
+    steps:       
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.301
+        dotnet-version: 3.1.301  
+    
+    - name: Set directory
+    - run: |
+        cd PrettyXML.VSMac/PrettyXML.VSMac
+        
     - name: Install dependencies
       run: dotnet restore
     - name: Build
