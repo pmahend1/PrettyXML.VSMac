@@ -41,7 +41,7 @@ jobs:
       run: dotnet restore .\PrettyXML.VSMac\PrettyXML.VSMac.sln
       
     - name: Build
-      run: msbuild .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj /t:rebuild Release
+      run: msbuild .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj /t:rebuild -property:Configuration=Release
       
     #- name: Test
     #  run: dotnet test .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj --no-restore --verbosity normal
