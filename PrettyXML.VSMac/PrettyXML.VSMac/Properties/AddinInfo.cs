@@ -29,7 +29,7 @@ using Mono.Addins.Description;
 [assembly: Addin(
     "PrettyXML.VSMac",
     Namespace = "PrettyXML.VSMac",
-    Version = "1.0.0-beta",
+    Version = "1.0.1-beta",
     Category = "Code formatters",
     Flags = AddinFlags.None,
     EnabledByDefault = true,
