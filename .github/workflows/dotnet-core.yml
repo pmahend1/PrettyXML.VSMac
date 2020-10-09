@@ -4,14 +4,19 @@ on:
   push:
     branches: [ master ]
   pull_request:
-      branches:
+    branches:
       - master
+      - Dev
   workflow_dispatch:
+    branches:
+      - master
+      - Dev
+      - gh-actions
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v2
