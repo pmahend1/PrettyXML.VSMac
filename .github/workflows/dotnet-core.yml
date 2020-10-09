@@ -33,10 +33,6 @@ jobs:
       with:
         dotnet-version: 3.1.402  
 
-    - name: Install Mono
-      run : |
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-        brew install mono
       
     - name: Set directory
       run: sl .\PrettyXML.VSMac\PrettyXML.VSMac\
@@ -45,7 +41,7 @@ jobs:
       run: dotnet restore .\PrettyXML.VSMac\PrettyXML.VSMac.sln
       
     - name: Build
-      run: dotnet build .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj --configuration Release --no-restore
+      run: msbuild .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj /t:rebuild Release
       
-    - name: Test
-      run: dotnet test .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj --no-restore --verbosity normal
+    #- name: Test
+    #  run: dotnet test .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj --no-restore --verbosity normal
