@@ -32,7 +32,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.402  
-    
+
+    - name: Install Mono
+      run : |
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+        brew install mono
+      
     - name: Set directory
       run: sl .\PrettyXML.VSMac\PrettyXML.VSMac\
         
