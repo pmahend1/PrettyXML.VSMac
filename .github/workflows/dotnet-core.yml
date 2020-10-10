@@ -1,4 +1,4 @@
-name: .NET Core
+name: Publish CI
 
 on:
   push:
@@ -42,6 +42,8 @@ jobs:
       
     - name: Build
       run: msbuild .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj /t:rebuild -property:Configuration=Release
-      
-    #- name: Test
-    #  run: dotnet test .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj --no-restore --verbosity normal
+    
+    - name : Upload Artifacts
+      uses: actions/upload-artifact@v2.2.0
+      with:
+        path: .\PrettyXML.VSMac\PrettyXML.VSMac\bin\Release\net48\*
