@@ -37,7 +37,7 @@ jobs:
         run: msbuild .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj /t:rebuild -property:Configuration=Release
 
       - name: Upload Artifacts
-        if: ${{ github.event_name == 'push' && github.base_ref == 'refs/heads/master' }}
+        if: ${{ github.event_name == 'push' }}
         uses: actions/upload-artifact@v2.2.0
         with:
           path: /Users/runner/work/PrettyXML.VSMac/PrettyXML.VSMac/PrettyXML.VSMac/PrettyXML.VSMac/bin/Release/net48/
