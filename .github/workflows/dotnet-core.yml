@@ -40,6 +40,9 @@ jobs:
       run: msbuild .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj /t:rebuild -property:Configuration=Release
     
     - name : Upload Artifacts
-      uses: actions/upload-artifact@v2.2.0
+      
+    - run: Set-Location .\PrettyXML.VSMac\PrettyXML.VSMac\bin\Release
+    - uses: actions/upload-artifact@v2.2.0
       with:
-        path: .\PrettyXML.VSMac\PrettyXML.VSMac\bin\Release\net48
+        path: net48
+    
