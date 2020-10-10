@@ -4,19 +4,15 @@ on:
   push:
     branches:
       - master
-      - Dev
-      - 'gh-actions'
-        
+
   pull_request:
     branches:
       - master
-      - Dev
-      
+
   workflow_dispatch:
     branches:
       - master
       - Dev
-      - 'gh-actions'
 
 jobs:
   build:
@@ -24,23 +20,22 @@ jobs:
     defaults:
       run:
         shell: pwsh
-        
-    steps:
-    - uses: actions/checkout@v2.3.3
 
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.402  
-        
-    - name: Install dependencies
-      run: dotnet restore .\PrettyXML.VSMac\PrettyXML.VSMac.sln
-      
-    - name: Build
-      run: msbuild .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj /t:rebuild -property:Configuration=Release
-    
-    - name: Upload Artifacts
-      uses: actions/upload-artifact@v2.2.0
-      with:
-        path: /Users/runner/work/PrettyXML.VSMac/PrettyXML.VSMac/PrettyXML.VSMac/PrettyXML.VSMac/bin/Release/net48/
-    
+    steps:
+      - uses: actions/checkout@v2.3.3
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.402
+
+      - name: Install dependencies
+        run: dotnet restore .\PrettyXML.VSMac\PrettyXML.VSMac.sln
+
+      - name: Build
+        run: msbuild .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj /t:rebuild -property:Configuration=Release
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          path: /Users/runner/work/PrettyXML.VSMac/PrettyXML.VSMac/PrettyXML.VSMac/PrettyXML.VSMac/bin/Release/net48/
