@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - master
+      - Dev
 
   workflow_dispatch:
     branches:
@@ -29,7 +30,7 @@ jobs:
         with:
           dotnet-version: 3.1.402
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: dotnet restore .\PrettyXML.VSMac\PrettyXML.VSMac.sln
 
       - name: Build
