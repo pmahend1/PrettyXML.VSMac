@@ -32,12 +32,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.402  
-
-      
-    - name: Set directory
-      run: | 
-        $cwd = Get-Location
-        Write-Host "Running at $cwd"
         
     - name: Install dependencies
       run: dotnet restore .\PrettyXML.VSMac\PrettyXML.VSMac.sln
@@ -48,4 +42,4 @@ jobs:
     - name : Upload Artifacts
       uses: actions/upload-artifact@v2.2.0
       with:
-        path: /PrettyXML.VSMac/bin/Release/net48
+        path: /PrettyXML.VSMac/PrettyXML.VSMac/bin/Release/net48
