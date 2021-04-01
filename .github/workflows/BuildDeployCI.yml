@@ -25,9 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.3
       
-      - name: Install Dependencies
-        run: dotnet restore .\PrettyXML.VSMac\PrettyXML.VSMac.sln
-
       - name: Build
         run: msbuild .\PrettyXML.VSMac\PrettyXML.VSMac\PrettyXML.VSMac.csproj -restore -target:Rebuild -property:Configuration=Release
 
