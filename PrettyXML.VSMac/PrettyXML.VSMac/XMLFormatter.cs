@@ -57,7 +57,8 @@ namespace PrettyXML.VSMac
                     ext.EndsWith("xsl") ||
                     ext.EndsWith("xaml") ||
                     ext.EndsWith("axml")||
-                    ext.EndsWith("resx"))
+                    ext.EndsWith("resx") || 
+                    ext.EndsWith("plist") )
                 {
 
                     var formattedText = formatter.Format(currentDocumentText);
