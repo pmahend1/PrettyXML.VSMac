@@ -2,7 +2,7 @@
 
 ![license](https://img.shields.io/github/license/pmahend1/PrettyXML.VSMac?label=License&color=brightgreen&style=flat-square)
 
-[![Release](https://img.shields.io/github/v/release/pmahend1/PrettyXML.vsmac?include_prereleases&label=Release&color=brightgreen&style=for-the-badge&logo=github)](https://github.com/datnvh/PrettyXML.VSMac2022/releases) 
+[Release 1.5.1](https://github.com/datnvh/PrettyXML.VSMac2022/releases) 
 
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" width=150 height=40>](https://www.buymeacoffee.com/datnvh)  
 
