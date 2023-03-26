@@ -1,84 +1,161 @@
-﻿using System.Diagnostics;
-using System.Linq;
+﻿using System;
+using System.Diagnostics;
 using Microsoft.CodeAnalysis.Text;
 using Microsoft.VisualStudio.Text;
-using Microsoft.VisualStudio.Text.Editor;
 using MonoDevelop.Components.Commands;
 using MonoDevelop.Ide;
+using MonoDevelop.Ide.Gui;
 using XmlFormatter;
 
-namespace PrettyXML.VSMac
+namespace PrettyXML.VSMac2022;
+
+public class XMLFormatter : CommandHandler
 {
-    public class XMLFormatter : CommandHandler
+    #region [ Fields - Text and Document ]
+    private ITextBuffer? _buffer;
+    private ITextDocument? _document;
+    #endregion
+
+    #region [ Override Methods - CommandHandler ]
+    protected override void Run(object dataItem)
     {
+        base.Run(dataItem);
 
-        protected override void Run(object dataItem)
+        var valid = EnsureValidDocument();
+        if (valid)
         {
-            base.Run(dataItem);
-            var textBuffer = IdeApp.Workbench.ActiveDocument?.GetContent<ITextBuffer>();
-            var textview = IdeApp.Workbench.ActiveDocument.GetContent<ITextView>();
-
-
-            var textdocument = textBuffer?.Properties?.PropertyList?.FirstOrDefault(x =>x.Key is ITextDocument || x.Value is ITextDocument);
-            var documentvalue = textdocument?.Value as ITextDocument;
-
-            var ext = documentvalue?.FilePath?.Substring(documentvalue?.FilePath?.LastIndexOf(".")??0);
-
-            var contentType = textBuffer?.ContentType;
-            var currentDocumentText = textBuffer?.CurrentSnapshot?.AsText()?.ToString();
-            var formatter = new Formatter();
-
-
-            var contentTypeDisplayName = contentType?.DisplayName?.ToLower() ?? string.Empty;
-            if (contentTypeDisplayName.EndsWith("xml") ||
-                contentTypeDisplayName.EndsWith("resx") ||
-                contentTypeDisplayName.EndsWith("xsd") ||
-                contentTypeDisplayName.EndsWith("xaml"))
-            {
-                if (currentDocumentText != null)
-                {
-                    var formattedText = formatter.Format(currentDocumentText);
-                    var span = new Span(0, textBuffer.CurrentSnapshot.Length);
-                    textBuffer.Replace(span, formattedText);
-                }
-                else
-                {
-                    Debug.WriteLine("Editor text is null");
-                }
-
-            }
-            else
-            {
-                if(ext.EndsWith("csproj") ||
-                    ext.EndsWith("config") ||
-                    ext.EndsWith("mobileconfig") ||
-                    ext.EndsWith("xsd") ||
-                    ext.EndsWith("xml") ||
-                    ext.EndsWith("xsl") ||
-                    ext.EndsWith("xaml") ||
-                    ext.EndsWith("axml")||
-                    ext.EndsWith("resx") || 
-                    ext.EndsWith("plist") )
-                {
-
-                    var formattedText = formatter.Format(currentDocumentText);
-                    var span = new Span(0, textBuffer.CurrentSnapshot.Length);
-                    textBuffer.Replace(span, formattedText);
-                }
-            }
-
-
-        }
-
-        protected override void Update(CommandInfo info)
-        {
-
-            var textBuffer = IdeApp.Workbench.ActiveDocument.GetContent<ITextBuffer>();
-            if (textBuffer != null && textBuffer.AsTextContainer() is SourceTextContainer container)
-            {
-                var document = container.GetTextBuffer();
-                info.Enabled = document != null;
-            }
+            FormatDocument();
         }
     }
+
+    protected override void Update(CommandInfo info)
+    {
+        info.Enabled = EnsureValidDocument();
+    }
+    #endregion
+
+    #region [ Private Methods - Text and Document ]
+    private void FormatDocument()
+    {
+        if (_buffer == null)
+        {
+            return;
+        }
+
+        var currentDocumentText = GetCurrentDocumentText();
+
+        if (currentDocumentText == null)
+        {
+            return;
+        }
+
+        var formatter = new Formatter();
+
+        var formattedText = formatter.Format(currentDocumentText);
+        _buffer.Replace(new Span(0, _buffer.CurrentSnapshot.Length), formattedText);
+    }
+
+    private string? GetCurrentDocumentText()
+    {
+        return _buffer?.CurrentSnapshot?.AsText()?.ToString();
+    }
+
+    private bool EnsureValidDocument()
+    {
+        var buffer = _buffer = GetBuffer();
+        if (buffer == null)
+        {
+            EditorIsNull();
+            return false;
+        }
+
+        var document = _document = GetDocument();
+        if (document == null)
+        {
+            EditorIsNull();
+            return false;
+        }
+
+        var isValidContentType = GetIsValidContentType();
+        var isValidFileExtension = GetIsValidFileExtension();
+
+        if (!isValidContentType && !isValidFileExtension)
+        {
+            FileIsInvalid();
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool GetIsValidFileExtension()
+    {
+        var fileExtension = GetFileExtension();
+
+        if (fileExtension == null)
+        {
+            return false;
+        }
+
+        if (fileExtension.EndsWith("csproj") ||
+            fileExtension.EndsWith("config") ||
+            fileExtension.EndsWith("mobileconfig") ||
+            fileExtension.EndsWith("xsd") ||
+            fileExtension.EndsWith("xml") ||
+            fileExtension.EndsWith("xsl") ||
+            fileExtension.EndsWith("xaml") ||
+            fileExtension.EndsWith("axml") ||
+            fileExtension.EndsWith("resx") ||
+            fileExtension.EndsWith("plist"))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool GetIsValidContentType()
+    {
+        var buffer = _buffer;
+
+        var contentTypeDisplayName = buffer?.ContentType?.DisplayName?.ToLower() ?? string.Empty;
+
+        if (contentTypeDisplayName.EndsWith("xml") ||
+            contentTypeDisplayName.EndsWith("resx") ||
+            contentTypeDisplayName.EndsWith("xsd") ||
+            contentTypeDisplayName.EndsWith("xaml"))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private string? GetFileExtension()
+    {
+        return _document?.FilePath?.Substring(_document?.FilePath?.LastIndexOf(".") ?? 0);
+    }
+
+    private ITextDocument? GetDocument()
+    {
+        return _buffer?.Properties?.PropertyList?.FirstOrDefault(x => x.Key is ITextDocument || x.Value is ITextDocument).Value as ITextDocument;
+    }
+
+    private static ITextBuffer? GetBuffer()
+    {
+        return IdeApp.Workbench?.ActiveDocument?.GetContent<ITextBuffer>();
+    }
+    #endregion
+
+    #region [ Private Methods - Failed message ]
+    private void EditorIsNull()
+    {
+        Debug.WriteLine("Editor text is null");
+    }
+
+    private void FileIsInvalid()
+    {
+        Debug.WriteLine("File is invialid");
+    }
+    #endregion
 }
