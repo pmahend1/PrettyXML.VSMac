@@ -15,9 +15,7 @@ Formats XML just like Windows counterpart.
 
 ## Keyboard shortcuts
 
-- **CMD+K J** : Prettify XML  
-- **CMD+K CMD+J** : Prettify XML  
-
+- **CMD+CONTROL+I** : Prettify XML  
 
 ![Example](./example.gif)  
 
