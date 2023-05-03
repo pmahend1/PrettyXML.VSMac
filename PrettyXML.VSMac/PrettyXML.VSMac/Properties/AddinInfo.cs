@@ -27,17 +27,20 @@ using Mono.Addins;
 using Mono.Addins.Description;
 
 [assembly: Addin(
-    "PrettyXML.VSMac",
-    Namespace = "PrettyXML.VSMac",
-    Version = "1.5.0",
+    "PrettyXML.VSMac2022",
+    Namespace = "PrettyXML.VSMac2022",
+    Version = "1.5.1",
     Category = "Code formatters",
     Flags = AddinFlags.None,
     EnabledByDefault = true,
-    Url = "https://github.com/pmahend1/PrettyXML.VSMac"
+    Url = "https://github.com/datnvh/PrettyXML.VSMac2022"
 )]
 
-[assembly: AddinName("PrettyXML VS Mac")]
+[assembly: AddinName("PrettyXML VS Mac 2022")]
 [assembly: AddinCategory("Code formatters")]
-[assembly: AddinDescription("PrettyXML for Visual Studio for Mac.\nFormats XML just like Windows counterpart.\nShortcut CMD+K J or CMD+K CMD+J")]
-[assembly: AddinAuthor("Prateek Mahendrakar")]
+[assembly: AddinDescription("PrettyXML for Visual Studio for Mac 2022.\nFormats XML just like Windows counterpart.\nShortcut Command+Control+I")]
+[assembly: AddinAuthor("DatNVH")]
 [assembly: AddinProperty("Icon32", "logo.png")]
+
+[assembly: AddinDependency("::MonoDevelop.Core", "17.5")]
+[assembly: AddinDependency("::MonoDevelop.Ide", "17.5")]

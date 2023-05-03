@@ -1,4 +1,4 @@
-﻿namespace PrettyXML.VSMac
+﻿namespace PrettyXML.VSMacVSMac2022
 {
     public enum PrettyXMLCommands
     {

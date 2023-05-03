@@ -1,7 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyXML.VSMac", "PrettyXML.VSMac\PrettyXML.VSMac.csproj", "{4092ADBF-31FD-4D10-BA37-C1A92115954C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyXML.VSMac2022", "PrettyXML.VSMac\PrettyXML.VSMac2022.csproj", "{4092ADBF-31FD-4D10-BA37-C1A92115954C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlFormatter", "XmlFormatter\XmlFormatter.csproj", "{5FF40669-56AB-44E9-837F-7ED579170378}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +15,9 @@ Global
 		{4092ADBF-31FD-4D10-BA37-C1A92115954C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4092ADBF-31FD-4D10-BA37-C1A92115954C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4092ADBF-31FD-4D10-BA37-C1A92115954C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FF40669-56AB-44E9-837F-7ED579170378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF40669-56AB-44E9-837F-7ED579170378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF40669-56AB-44E9-837F-7ED579170378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF40669-56AB-44E9-837F-7ED579170378}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
