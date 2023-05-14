@@ -3,18 +3,15 @@
     <Runtime>
         <Import assembly="XmlFormatter.dll" />
     </Runtime>
-
     <Extension path="/MonoDevelop/Ide/Commands/Edit">
-        <Command id="PrettyXML.VSMac2022.PrettyXMLCommands.FormatXML"
+        <Command id="PrettyXML.VSMac.PrettyXMLCommands.FormatXML"
                  _label="Prettify XML"
-                 defaultHandler="PrettyXML.VSMac2022.XMLFormatter"
-                 macShortcut="Command+Control+I"
+                 defaultHandler="PrettyXML.VSMac.XMLFormatter"
+                 macShortcut="Command+K|J Command+K|Command+J"
                  shortcut="Control+K|J Control+K|Control+J"
                  description="Formats XML just like Visual Studio" />
     </Extension>
-
     <Extension path="/MonoDevelop/Ide/MainMenu/Edit">
-        <CommandItem id="PrettyXML.VSMac2022.PrettyXMLCommands.FormatXML" />
+        <CommandItem id="PrettyXML.VSMac.PrettyXMLCommands.FormatXML" />
     </Extension>
-
 </ExtensionModel>
