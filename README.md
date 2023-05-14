@@ -1,10 +1,6 @@
 # PrettyXML.VSMac
 
-![license](https://img.shields.io/github/license/pmahend1/PrettyXML.VSMac?label=License&color=brightgreen&style=flat-square)
-
-[![Release](https://img.shields.io/github/v/release/pmahend1/PrettyXML.vsmac?include_prereleases&label=Release&color=brightgreen&style=for-the-badge&logo=github)](https://github.com/pmahend1/PrettyXML.VSMac/releases/) 
-
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pmahend1/prettyxml.vsmac/Publish%20CI?label=Publish%20CI&style=flat-square) ![Downloads](https://img.shields.io/github/downloads/pmahend1/Prettyxml.vsmac/total?color=brightgreen&label=Downloads&style=flat-square)
+![license](https://img.shields.io/github/license/pmahend1/PrettyXML.VSMac?label=License&color=orange&style=for-the-badge)![Release Workflow Status](https://img.shields.io/github/actions/workflow/status/pmahend1/prettyxml.vsmac/BuildDeployCI.yml?style=for-the-badge)![Downloads](https://img.shields.io/github/downloads/pmahend1/Prettyxml.vsmac/total?color=blue&label=Downloads&style=for-the-badge)
 
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" width=150 height=40>](https://www.buymeacoffee.com/pmahend1)  
 
