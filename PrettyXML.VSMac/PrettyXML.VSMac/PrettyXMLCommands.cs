@@ -1,7 +1,6 @@
-﻿namespace PrettyXML.VSMac
+﻿namespace PrettyXML.VSMac;
+
+public enum PrettyXMLCommands
 {
-    public enum PrettyXMLCommands
-    {
-        FormatXML
-    }
+    FormatXML
 }

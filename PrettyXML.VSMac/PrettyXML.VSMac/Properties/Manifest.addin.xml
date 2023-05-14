@@ -7,7 +7,7 @@
         <Command id="PrettyXML.VSMac.PrettyXMLCommands.FormatXML"
                  _label="Prettify XML"
                  defaultHandler="PrettyXML.VSMac.XMLFormatter"
-                 macShortcut="Meta+K|J Meta+K|Meta+J"
+                 macShortcut="Command+K|J Command+K|Command+J"
                  shortcut="Control+K|J Control+K|Control+J"
                  description="Formats XML just like Visual Studio" />
     </Extension>
