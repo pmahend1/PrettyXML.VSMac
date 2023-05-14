@@ -15,9 +15,15 @@ Formats XML just like Windows counterpart.
 
 ## Keyboard shortcuts
 
-- **CMD+K J** : Prettify XML  
-- **CMD+K CMD+J** : Prettify XML  
+- **CMD+K J** 
+- **CMD+K CMD+J**
 
+This can be configured in **Preferences** ➞ **Keyboard Shortcuts**
+
+![Keyboard shortcut](./PrettyXML.VSMac/PrettyXML.VSMac/shortcut.png)
+
+
+## Example
 
 ![Example](./example.gif)  
 
